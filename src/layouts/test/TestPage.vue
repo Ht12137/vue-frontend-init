@@ -1,18 +1,27 @@
 <template>
-  全局参数:{{res.info}}
-  <a-button type="dashed" @click="showLoginModal">showLogin</a-button>
+  <div v-for="item in msg" >
+    {{item}}
+  </div>
 </template>
 <script lang="ts" setup>
-import {useUserStore} from "../../store/userStore";
-import {reactive} from "vue";
-const userStore = useUserStore();
-const info = userStore.getInfo();
-const res = reactive({
-  info
+import {onMounted, inject, ref} from 'vue'
+const msg = ref([])
+onMounted(() => {
+  const socket = inject('socket')
+  const ws = socket('websocket/message')
+  ws.onopen = () => {
+    let msg = {
+      type: 'screen',
+      classId: 1
+    }
+    ws.send(JSON.stringify(msg))
+  }
+  ws.onmessage = ({ data }) => {
+    console.log(data)
+    msg.value.push(data)
+  }
 })
-const showLoginModal = () =>{
-  userStore.setIsShowModal(true)
-}
+
 
 </script>
 <style scoped>

@@ -1,7 +1,7 @@
 const routes = [
     {
         path: "/",
-        redirect:'/login'
+        redirect:'/test'
     },
 
     {
@@ -11,6 +11,11 @@ const routes = [
     {
         path: "/login",
         component:import("../layouts/login/LoginPage.vue")
+    },
+
+    {
+        path: "/hamberger",
+        component:import("../layouts/HambergerGame/HambergerGame.vue")
     }
 ]
 

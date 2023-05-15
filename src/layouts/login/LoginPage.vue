@@ -1,5 +1,6 @@
 <template>
   <a-button @click="jumpToTestPage">跳转到测试页面</a-button>
+  <a-button @click="testNum">测试Number</a-button>
   <a-input v-model:value="value1"></a-input>
 </template>
 
@@ -16,6 +17,12 @@ const jumpToTestPage = () =>{
   //和route.ts文件对应
   router.push("/test")
   userStore.setInfo(value1.value);
+}
+
+
+const testNum = () =>{
+  //和route.ts文件对应
+  console.log(Number())
 }
 </script>
 

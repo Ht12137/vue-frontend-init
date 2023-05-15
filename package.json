@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "openapi": "node ./script/openapi.js"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
     "@element-plus/icons-vue": "^2.0.10",
+    "@umijs/openapi": "^1.8.3",
     "animate.css": "^4.1.1",
     "ant-design-vue": "^3.2.15",
     "autoprefixer": "^10.4.13",
